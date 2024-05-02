@@ -10,7 +10,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: createUploadLink(
         {
-            uri: 'http://localhost:8000/graphql',
+            uri: process.env.REACT_APP_API_URL,
             credentials: 'same-origin',
         }
     ),
