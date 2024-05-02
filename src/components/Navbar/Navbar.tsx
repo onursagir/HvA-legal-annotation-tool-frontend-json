@@ -2,6 +2,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import './Navbar.css';
+import { getPublicURL } from '../../utils/getPublicURL';
 
 const Navbar = () => (
     <>
@@ -12,10 +13,10 @@ const Navbar = () => (
             <nav>
                 <ul>
                     <li >
-                        <NavLink to="/" className={({isActive}) => isActive ? "active": ""}>Home</NavLink>
+                        <NavLink to={`${getPublicURL()}/`} className={({isActive}) => isActive ? "active": ""}>Home</NavLink>
                     </li>
                     <li className="active">
-                        <NavLink to="/relation-schemas" className={({isActive}) => isActive ? "active": ""}>Relatie schemas</NavLink>
+                        <NavLink to={`${getPublicURL()}/relation-schemas`} className={({isActive}) => isActive ? "active": ""}>Relatie schemas</NavLink>
                     </li>
                 </ul>
             </nav>

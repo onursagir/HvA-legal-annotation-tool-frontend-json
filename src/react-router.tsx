@@ -6,9 +6,11 @@ import React from "react";
 import RelationSchemaIndex from "./components/RelationSchema/Index/RelationSchemaIndex";
 import RelationSchemaDetail from "./components/RelationSchema/Detail/RelationSchemaDetail";
 import RevisionSelector from "./components/RevisonSelector/RevisionSelector";
+import { getPublicURL } from "./utils/getPublicURL";
+
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: getPublicURL() + "/",
         element: <Layout/>,
         children: [
             {
@@ -24,15 +26,15 @@ const router = createBrowserRouter([
                 element: <RevisionSelector/>,
             },
             {
-                path: "/relation-schemas",
+                path: "relation-schemas",
                 element: <RelationSchemaIndex/>,
             },
             {
-                path: "/relation-schemas/:id",
+                path: "relation-schemas/:id",
                 element: <RelationSchemaDetail/>,
             },
             {
-                path: "/relation-schemas/new",
+                path: "relation-schemas/new",
                 element: <RelationSchemaDetail/>,
             },
         ],
