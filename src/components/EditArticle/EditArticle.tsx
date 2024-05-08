@@ -27,6 +27,7 @@ import useEditorConfig from "../../hooks/useEditorConfig";
 import useAddArticleToState from "../../hooks/useAddArticleToState";
 import useClearArticleState from "../../hooks/useClearArticleState";
 import {Alert, Button, Snackbar} from "@mui/material";
+import { relativePath } from "../../utils/relativePath";
 
 interface EditArticleProps {
     revision: number
@@ -68,7 +69,7 @@ const EditArticle: React.FC<EditArticleProps> = ({
                 // @ts-ignore
                 return error.extensions.validation.id.includes('The selected id is invalid.')
             })) {
-                window.location.href = '/import-xml';
+                window.location.href = relativePath('/import-xml');
             }
         }
     }, [lawError]);

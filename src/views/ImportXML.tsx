@@ -15,6 +15,8 @@ import {
     DeleteLawMutation,
     SimpleLawFragment,
 } from "../graphql/api-schema";
+import { getPublicURL } from "../utils/getPublicURL";
+import { relativePath } from "../utils/relativePath";
 
 const ImportXML = () => {
     const {data, loading, refetch} = useGetLawsQuery();
@@ -44,7 +46,7 @@ const ImportXML = () => {
     }
 
     const handleOnClick = (law: SimpleLawFragment) => {
-        window.location.href = '/revisionselector/' + law.id;
+        window.location.href = relativePath('/revisionselector/' + law.id);
     }
 
     async function handleOnDelete(event: React.MouseEvent, id: string) {

@@ -30,6 +30,8 @@ import {Button, Input, MenuItem, Select, SelectChangeEvent} from "@mui/material"
 import {useMutation, useQuery} from "@apollo/client";
 import {useParams} from "react-router-dom";
 import {Black} from "../../../stylesheets/Colors";
+import { getPublicURL } from '../../../utils/getPublicURL';
+import { relativePath } from '../../../utils/relativePath';
 
 const edgeTypes: EdgeTypes = {
     custom: CustomEdge,
@@ -265,7 +267,7 @@ const RelationSchemaDetail = () => {
                 // @ts-ignore
                 return error.extensions.validation.id.includes('The selected id is invalid.')
             })) {
-                window.location.href = '/relation-schemas';
+                window.location.href = relativePath('/relation-schemas');
             }
         }
     }, [errorRelationSchema]);
@@ -526,7 +528,7 @@ const RelationSchemaDetail = () => {
             }).then((result) => {
                 if (result.data?.saveMatterRelationSchema?.relationSchema.id !== relationSchemaId) {
                     setRelationSchemaId(result.data?.saveMatterRelationSchema?.relationSchema.id)
-                    const newUrl = window.location.protocol + "//" + window.location.host + `/relation-schemas/${result.data?.saveMatterRelationSchema?.relationSchema.id}?matter=${selectedMatterId}`;
+                    const newUrl = window.location.protocol + "//" + window.location.host + relativePath(`/relation-schemas/${result.data?.saveMatterRelationSchema?.relationSchema.id}?matter=${selectedMatterId}`);
                     window.history.pushState({path: newUrl}, '', newUrl);
                 }
 

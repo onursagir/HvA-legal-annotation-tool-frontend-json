@@ -13,6 +13,7 @@ import {
 import Grid from "@mui/material/Grid";
 import {Button} from "@mui/material";
 import clsx from "clsx";
+import { relativePath } from '../../../utils/relativePath';
 
 const RelationSchemaIndex = () => {
 
@@ -52,7 +53,7 @@ const RelationSchemaIndex = () => {
     };
 
     const redirectToDetail = (id: string | null) => {
-        window.location.href = id ? `/relation-schemas/${id}` : '/relation-schemas/new'
+        window.location.href = relativePath(id ? `/relation-schemas/${id}` : '/relation-schemas/new');
     }
 
     return (

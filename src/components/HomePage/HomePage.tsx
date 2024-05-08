@@ -4,9 +4,10 @@ import '../../views/ImportXML.css'
 import {Title} from "../../stylesheets/Fonts";
 import Grid from '@mui/material/Grid';
 import {Box, Button} from "@mui/material";
+import { relativePath } from '../../utils/relativePath';
 
 const handleClick = () => {
-    window.location.href = '/import-xml';
+    window.location.href = relativePath('/import-xml');
 };
 
 const HomePage = () => {
